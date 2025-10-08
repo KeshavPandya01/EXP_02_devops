@@ -7,13 +7,13 @@ node {
     }
 
     stage('Build') {
-        withEnv(["JAVA_HOME=${tool 'JDK17'}", "PATH+JAVA=${tool 'JDK17'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
+        withEnv(["JAVA_HOME=${tool 'jdk-21'}", "PATH+JAVA=${tool 'jdk-21'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
             sh 'mvn clean package'
         }
     }
 
     stage('Test') {
-        withEnv(["JAVA_HOME=${tool 'JDK17'}", "PATH+JAVA=${tool 'JDK17'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
+        withEnv(["JAVA_HOME=${tool 'jdk-21'}", "PATH+JAVA=${tool 'jdk-21'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
             sh 'mvn test'
         }
     }
