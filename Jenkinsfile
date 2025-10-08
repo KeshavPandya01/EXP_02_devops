@@ -8,13 +8,13 @@ node {
 
     stage('Build') {
         withEnv(["JAVA_HOME=${tool 'jdk-21'}", "PATH+JAVA=${tool 'jdk-21'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
-            sh 'mvn clean package'
+            bat 'mvn clean package'
         }
     }
 
     stage('Test') {
         withEnv(["JAVA_HOME=${tool 'jdk-21'}", "PATH+JAVA=${tool 'jdk-21'}/bin", "PATH+MAVEN=${tool 'maven'}/bin"]) {
-            sh 'mvn test'
+            bat 'mvn test'
         }
     }
 
